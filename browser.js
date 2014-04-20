@@ -1,24 +1,24 @@
-!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.byestyles=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Focm2+":[function(_dereq_,module,exports){
-var byestyles = module.exports = {
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.byestyle=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Focm2+":[function(_dereq_,module,exports){
+var byestyle = module.exports = {
   calculate: function () {
-    if (++byestyles.calculatedCount === 1) {
-      console.log(byestyles.spacer);
+    if (++byestyle.calculatedCount === 1) {
+      console.log(byestyle.spacer);
       console.error('Consider moving these to classes...');
 
-      byestyles.els.
+      byestyle.els.
         forEach(function (elObject) {
           var lastStyle = elObject.properties.styleLog[elObject.properties.styleLog.length - 1];
           console.info(elObject.el);
           console.log([
             'Styles at page load:',
-            byestyles.format(lastStyle),
-            byestyles.separator].join('\n'));
+            byestyle.format(lastStyle),
+            byestyle.separator].join('\n'));
         });
 
       return;
     }
 
-    var els = byestyles.els.
+    var els = byestyle.els.
       filter(function (elObject) {
         var styleLog = elObject.properties.styleLog;
         return styleLog.length === 1 ||
@@ -38,9 +38,9 @@ var byestyles = module.exports = {
       }, []);
 
     if (els.length) {
-      console.log(byestyles.spacer);
+      console.log(byestyle.spacer);
       console.warn('Elements that have been modified by JavaScript...');
-      console.log(byestyles.separator);
+      console.log(byestyle.separator);
 
       els.
         forEach(function (elObject) {
@@ -54,13 +54,13 @@ var byestyles = module.exports = {
             console.dir(styleLog);
             console.log([
               'Previous style:',
-              byestyles.format(styleLog[styleLog.length - 2])].join('\n'));
+              byestyle.format(styleLog[styleLog.length - 2])].join('\n'));
           }
 
           console.log([
             'Current style:',
-            byestyles.format(style),
-            byestyles.separator].join('\n'));
+            byestyle.format(style),
+            byestyle.separator].join('\n'));
         });
     }
   },
@@ -73,13 +73,13 @@ var byestyles = module.exports = {
     console.log([
       '--',
       '------',
-      '------------------------',
-      '---------------------------------------'
+      '-----------------------',
+      '-------------------------------------'
     ][direction === 'in' ? 'sort' : 'reverse']().join('\n'));
   },
 
   find: function (el) {
-    return byestyles.els.filter(function (elObject) {
+    return byestyle.els.filter(function (elObject) {
       return el === elObject.el;
     })[0] || {};
   },
@@ -95,10 +95,10 @@ var byestyles = module.exports = {
   },
 
   help: function () {
-    byestyles.fade('in');
+    byestyle.fade('in');
     console.log([
       '',
-      'H O W  . B Y E S T Y L E S .  W O R K S',
+      'H O W  . B Y E S T Y L E .  W O R K S',
       ''].join('\n'));
     console.error(
       'console.error = styles are on an element before any JS has executed.');
@@ -109,15 +109,15 @@ var byestyles = module.exports = {
     console.log([
       '',
       'Help this tool improve:',
-      'https://github.com/stephenplusplus/byestyles'].join('\n'));
-    byestyles.fade('out');
+      'https://github.com/stephenplusplus/byestyle'].join('\n'));
+    byestyle.fade('out');
   },
 
   inventory: function () {
-    byestyles.els = byestyles.getStyles().map(function (el) {
+    byestyle.els = byestyle.getStyles().map(function (el) {
       var elObject = {
         el: el,
-        properties: byestyles.find(el).properties || {
+        properties: byestyle.find(el).properties || {
           styleLog: []
         }
       };
@@ -128,16 +128,16 @@ var byestyles = module.exports = {
     });
   },
 
-  separator: '---------------------------------------',
+  separator: '-------------------------------------',
 
   spacer: ['', ''].join('\n')
 };
 
-byestyles.help();
-byestyles.inventory();
-byestyles.calculate();
+byestyle.help();
+byestyle.inventory();
+byestyle.calculate();
 
-},{}],"byestyles":[function(_dereq_,module,exports){
+},{}],"byestyle":[function(_dereq_,module,exports){
 module.exports=_dereq_('Focm2+');
 },{}]},{},["Focm2+"])
 ("Focm2+")

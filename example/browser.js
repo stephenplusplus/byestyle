@@ -1,4 +1,4 @@
-!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.byestyles=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Focm2+":[function(_dereq_,module,exports){
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.byestyle=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Focm2+":[function(_dereq_,module,exports){
 var byestyles = module.exports = {
   calculate: function () {
     if (++byestyles.calculatedCount === 1) {
@@ -73,8 +73,8 @@ var byestyles = module.exports = {
     console.log([
       '--',
       '------',
-      '------------------------',
-      '---------------------------------------'
+      '-----------------------',
+      '-------------------------------------'
     ][direction === 'in' ? 'sort' : 'reverse']().join('\n'));
   },
 
@@ -98,7 +98,7 @@ var byestyles = module.exports = {
     byestyles.fade('in');
     console.log([
       '',
-      'H O W  . B Y E S T Y L E S .  W O R K S',
+      'H O W  . B Y E S T Y L E .  W O R K S',
       ''].join('\n'));
     console.error(
       'console.error = styles are on an element before any JS has executed.');
@@ -128,7 +128,7 @@ var byestyles = module.exports = {
     });
   },
 
-  separator: '---------------------------------------',
+  separator: '-------------------------------------',
 
   spacer: ['', ''].join('\n')
 };
@@ -137,7 +137,7 @@ byestyles.help();
 byestyles.inventory();
 byestyles.calculate();
 
-},{}],"byestyles":[function(_dereq_,module,exports){
+},{}],"byestyle":[function(_dereq_,module,exports){
 module.exports=_dereq_('Focm2+');
 },{}]},{},["Focm2+"])
 ("Focm2+")
