@@ -1,0 +1,20 @@
+{
+  "name": "byestyles",
+  "version": "0.0.0",
+  "author": "Stephen Sawchuk <sawchuk@gmail.com> (http://sawchuk.me)",
+  "description": "Keep an eye on those pesky inline styles.",
+  "repository": "stephenplusplus/byestyles",
+  "scripts": {
+    "browser": "a=$npm_package_name; browserify -r ./index:$a -s $a index.js -o browser.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "inline",
+    "styles"
+  ],
+  "devDependencies": {
+    "browserify": "^3.0.0"
+  }
+}

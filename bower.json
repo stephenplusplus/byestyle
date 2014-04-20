@@ -1,0 +1,24 @@
+{
+  "name": "byestyle",
+  "main": "browser.js",
+  "homepage": "https://github.com/stephenplusplus/byestyles",
+  "authors": [
+    "Stephen Sawchuk <sawchuk@gmail.com>"
+  ],
+  "description": "Keep an eye on those pesky inline styles.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "inline",
+    "styles"
+  ],
+  "ignore": [
+    "index.js",
+    "package.json",
+    "readme.md"
+  ],
+  "license": "MIT"
+}

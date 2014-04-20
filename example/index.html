@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>byestyle.</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">link.</a></li>
+        <li><a href="#">link.</a></li>
+      </ul>
+
+      <p>
+        i am content.
+      </p>
+    </nav>
+
+    <section class="container" style="color: red">
+      <article id="inner">
+        <p style="border: 1px solid teal">
+          i am also content.
+        </p>
+      </article>
+    </section>
+
+
+    <!-- include this script before any other JS. -->
+    <script src="../browser.js"></script>
+
+
+    <!-- simulate a bunch of element hijacking in your JS. -->
+    <script>
+      document.querySelector('.container').style.backgroundColor = '#ccc';
+      document.querySelector('.container').style.color = 'orange';
+
+      document.querySelector('#inner').style.backgroundColor = '#eee';
+
+      [].slice.call(document.querySelectorAll('p')).forEach(function (el) {
+        el.style.fontSize = '18px';
+      });
+
+      [].slice.call(document.querySelectorAll('a')).forEach(function (el) {
+        el.style.color = 'pink';
+      });
+
+      document.querySelector('section').style.zoom = 1; // remember this crap?
+    </script>
+
+
+    <script>
+      // take an inventory of the [style] elements on the page.
+      window.byestyles.inventory();
+
+      // calculate the changes.
+      window.byestyles.calculate();
+    </script>
+  </body>
+</html>
