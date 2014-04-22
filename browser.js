@@ -1,20 +1,30 @@
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.byestyle=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"Focm2+":[function(_dereq_,module,exports){
+'use strict';
+
 var byestyle = module.exports = {
   calculate: function () {
+    function getDisplayName(el) {
+      return el.tagName.toLowerCase() + (el.className ? '.' : '') + el.className;
+    }
+
+    function logElHeading(el) {
+      console.info('%cElement: (right-click to inspect)\n ', 'font-style: italic;', el);
+    }
+
     if (++byestyle.calculatedCount === 1) {
-      console.log(byestyle.spacer);
-      console.error('Consider moving these to classes...');
+      console.groupCollapsed('Consider moving these to classes...');
 
       byestyle.els.
         forEach(function (elObject) {
           var lastStyle = elObject.properties.styleLog[elObject.properties.styleLog.length - 1];
-          console.info(elObject.el);
-          console.log([
-            'Styles at page load:',
-            byestyle.format(lastStyle),
-            byestyle.separator].join('\n'));
+          console.groupCollapsed(getDisplayName(elObject.el));
+          logElHeading(elObject.el);
+          console.info('%cStyles at page load:', 'font-style: italic;');
+          console.log(byestyle.format(lastStyle));
+          console.groupEnd();
         });
 
+      console.groupEnd();
       return;
     }
 
@@ -38,45 +48,37 @@ var byestyle = module.exports = {
       }, []);
 
     if (els.length) {
-      console.log(byestyle.spacer);
-      console.warn('Elements that have been modified by JavaScript...');
-      console.log(byestyle.separator);
+      console.groupCollapsed('Elements that have been modified by JavaScript...');
 
       els.
         forEach(function (elObject) {
           var style = elObject.el.getAttribute('style'),
               styleLog = elObject.properties.styleLog;
 
-          console.info(elObject.el);
+          console.groupCollapsed(getDisplayName(elObject.el));
+
+          logElHeading(elObject.el);
 
           if (styleLog.length > 1 && styleLog[styleLog.length - 2] !== styleLog[styleLog.length - 1]) {
-            console.log('Style log:');
+            console.info('%cStyle log:', 'font-style: italic;');
             console.dir(styleLog);
-            console.log([
-              'Previous style:',
-              byestyle.format(styleLog[styleLog.length - 2])].join('\n'));
+            console.info('%cPrevious style:', 'font-style: italic;');
+            console.log(byestyle.format(styleLog[styleLog.length - 2]));
           }
 
-          console.log([
-            'Current style:',
-            byestyle.format(style),
-            byestyle.separator].join('\n'));
+          console.info('%cCurrent style:', 'font-style: italic;');
+          console.log(byestyle.format(style));
+
+          console.groupEnd();
         });
+
+      console.groupEnd();
     }
   },
 
   calculatedCount: 0,
 
   els: [],
-
-  fade: function (direction) {
-    console.log([
-      '--',
-      '------',
-      '-----------------------',
-      '-------------------------------------'
-    ][direction === 'in' ? 'sort' : 'reverse']().join('\n'));
-  },
 
   find: function (el) {
     return byestyle.els.filter(function (elObject) {
@@ -95,22 +97,11 @@ var byestyle = module.exports = {
   },
 
   help: function () {
-    byestyle.fade('in');
+    console.log('%cbyestyle.', 'font-size: 18px; color: #B75AD6;');
     console.log([
-      '',
-      'H O W  . B Y E S T Y L E .  W O R K S',
-      ''].join('\n'));
-    console.error(
-      'console.error = styles are on an element before any JS has executed.');
-    console.warn(
-      'console.warn = styles are on an element after JS has executed.');
-    console.info(
-      'console.info = the element being analyzed.');
-    console.log([
-      '',
       'Help this tool improve:',
-      'https://github.com/stephenplusplus/byestyle'].join('\n'));
-    byestyle.fade('out');
+      'https://github.com/stephenplusplus/byestyle'
+    ].join('\n'));
   },
 
   inventory: function () {
@@ -126,11 +117,7 @@ var byestyle = module.exports = {
 
       return elObject;
     });
-  },
-
-  separator: '-------------------------------------',
-
-  spacer: ['', ''].join('\n')
+  }
 };
 
 byestyle.help();
