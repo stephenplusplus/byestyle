@@ -7,7 +7,7 @@
 
 
 ## Install
-`byestyle` can be downloaded through [Bower](http://bower.io) or [npm](http://npmjs.org).
+`byestyle` can be downloaded through [Bower](http://bower.io), [npm](http://npmjs.org) or [component](http://component.io).
 
 #### Browser
 ```bash
@@ -20,4 +20,9 @@ $ bower install --save byestyle
 #### Node.js
 ```bash
 $ npm install --save byestyle
+```
+
+#### Component
+```bash
+$ component install stephenplusplus/byestyle
 ```
