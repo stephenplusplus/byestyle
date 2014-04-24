@@ -1,0 +1,15 @@
+{
+  "name": "byestyle",
+  "version": "0.1.3",
+  "main": "index.js",
+  "repository": "stephenplusplus/byestyle",
+  "description": "Keep an eye on those pesky inline styles.",
+  "keywords": [
+    "inline",
+    "styles"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
